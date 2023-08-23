@@ -64,7 +64,7 @@ def game(target_number, name):
         
         return render_template('game.html', target_number=target_number, message=message, name=name, attempts=attempts+1)
     
-    return render_template('game.html', target_number=target_number, message='', name=name, attempts=0)
+    return render_template('game.html', target_number=target_number, message='', name=name, attempts=1)
 
         
 
