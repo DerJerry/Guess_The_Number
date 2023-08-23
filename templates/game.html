@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zahlenraten</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Hallo, {{ name }}!</h2>
+        <p>{{ message }}</p>
+        <p>Du hast bereits {{ attempts }} Mal geraten</p>
+        <form method="POST" action="/game/{{ target_number }}/{{ name }}">
+            <!-- Eingabefeld für die geratene Zahl -->
+            <label for="guess">Rate eine Zahl zwischen 1 und 100: </label>
+            <input type="number" name="guess" min="1" max="100" required>
+            <!-- Verstecktes Feld für die Anzahl der Versuche -->
+            <input type="hidden" name="attempts" value="{{ attempts }}">
+            <!-- Button, um die geratene Zahl zu überprüfen -->
+            <button type="submit">Raten</button>
+        </form>
+        <a href="/"><button>Startseite</button></a>
+    </div>
+</body>
+</html>

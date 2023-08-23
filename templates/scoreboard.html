@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zahlenraten - Scoreboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Scoreboard</h1>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Versuche</th>
+            </tr>
+            {% for score in scores %}
+                <tr>
+                    <!-- Anzeigen der Spielergebnisse in der Tabelle -->
+                    <td>{{ score[0] }}</td>
+                    <td>{{ score[1] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <!-- Link zur Startseite -->
+        <a href="/"><button>Startseite</button></a>
+    </div>
+</body>
+</html>

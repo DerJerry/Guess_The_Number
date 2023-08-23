@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zahlenraten</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Willkommen zum Zahlenraten!</h1>
+        <form method="POST" action="/">
+            <!-- Eingabefeld für den Namen des Spielers -->
+            <label for="name">Namen eingeben: </label>
+            <input type="text" name="name" required>
+            <!-- Button, um das Spiel zu starten -->
+            <button type="submit">Spiel Starten</button>
+        </form>
+        <!-- Button, um das Scoreboard anzuzeigen -->
+        <a href="{{ url_for('scoreboard') }}"><button>Scoreboard</button></a>
+    </div>
+</body>
+</html>
