@@ -9,7 +9,7 @@ db = mysql.connector.connect(
     host="localhost",
     user="root",
     password="",
-    database="game"
+    database="games"
 )
 cursor = db.cursor()
 
