@@ -6,9 +6,9 @@
 </head>
 <body>
     <div class="container">
-        <h2>Hallo, {{ name }}!</h2>
+        <h2>Hallo, {{ target_number }}!</h2>
         <p>{{ message }}</p>
-        <p>Du hast bereits {{ attempts }} Mal geraten</p>
+        <p>Du hast bereits {{ attempts-1 }} Mal geraten</p>
         <form method="POST" action="/game/{{ target_number }}/{{ name }}">
             <!-- Eingabefeld für die geratene Zahl -->
             <label for="guess">Rate eine Zahl zwischen 1 und 100: </label>

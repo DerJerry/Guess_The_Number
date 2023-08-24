@@ -1,50 +1,82 @@
-/* styles.css */
+/* Allgemeine Stile */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0; /* Hintergrundfarbe für den Light Mode */
 }
 
 .container {
-    width: 80%;
-    margin: 0 auto;
-    background-color: white;
+    text-align: center;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff; /* Hintergrundfarbe für den Light Mode */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 20px;
 }
 
 form {
-    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
+/* Dark Mode */
+body.dark-mode {
+    background-color: #1A1A1A; /* Hintergrundfarbe für den Dark Mode */
+    color: #ffffff;
+}
+
+.container.dark-mode {
+    background-color: #444444; /* Hintergrundfarbe für den Dark Mode */
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Button-Stile */
 button {
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: white;
+    padding: 10px 20px;
     border: none;
-    cursor: pointer;
+    background-color: #007bff; /* Standard Button-Farbe */
+    color: #ffffff;
     border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-table {
+button:hover {
+    background-color: #0056b3; /* Button-Farbe im Hover-Zustand */
+}
+
+/* Dark Mode für Buttons */
+button.dark-mode {
+    background-color: #1f1f1f; /* Button-Farbe im Dark Mode */
+}
+
+button.dark-mode:hover {
+    background-color: #333333; /* Button-Farbe im Dark Mode im Hover-Zustand */
+}
+
+/* Eingabefeld-Stile */
+input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
+/* Dark Mode für Eingabefeld */
+input[type="text"].dark-mode {
+    background-color: #444444; /* Hintergrundfarbe im Dark Mode */
+    color: #ffffff;
+    border: 1px solid #888888; /* Rahmenfarbe im Dark Mode */
 
-th {
-    background-color: #f2f2f2;
 }
-
-a {
-    display: block;
-    margin-top: 10px;
+.dark-text{
+    color: #1f1f1f
 }
