@@ -24,7 +24,7 @@ cursor.execute("""
 """)
 db.commit()
 
-# Startseite
+# Startseite 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
