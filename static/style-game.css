@@ -18,6 +18,15 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-left: 25px;
+}
+
+.ratingfield {
+    margin-bottom: 25px;
+}
+
+.rateButton {
+    margin: auto;
 }
 
 button:hover {
@@ -32,7 +41,7 @@ button:hover {
  /* Whitebox */
  .container {
     text-align: center;
-    padding: 20px;
+    padding: 55px;
     background-color: #ffffff; /* Hintergrundfarbe für den Light Mode */
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);

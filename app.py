@@ -24,7 +24,7 @@ cursor.execute("""
 """)
 db.commit()
 
-# Startseite
+# Startseite 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
@@ -74,6 +74,31 @@ def scoreboard():
     cursor.execute("SELECT name, attempts FROM scores ORDER BY attempts")
     scores = cursor.fetchall()
     return render_template('scoreboard.html', scores=scores)
+
+
+# Optionsseite
+@app.route('/options')
+def options():
+    return render_template('options.html')
+
+# Route zum Speichern der Einstellungen in Cookies
+@app.route('/save_options', methods=['POST'])
+def save_options():
+    language = request.form.get('language')
+    font_size = request.form.get('font-size')
+    volume = request.form.get('volume')
+    difficulty = request.form.get('difficulty')
+
+    # Speichern der Einstellungen in Cookies
+    response = app.make_response(redirect(url_for('index')))
+    response.set_cookie('language', str(language), max_age=365*24*60*60)
+    response.set_cookie('font-size', str(font_size), max_age=365*24*60*60)
+    response.set_cookie('volume', str(volume), max_age=365*24*60*60)
+    response.set_cookie('difficulty', str(difficulty), max_age=365*24*60*60)
+
+    
+    return response
+
 
 if __name__ == '__main__':
     app.run(debug=True)
