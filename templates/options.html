@@ -3,33 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
     <title>Number Guessing Game - Options</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style-opt.css') }}">
 </head>
-<body>
+<body class="dark-mode">
     <div class="container">
-        <h1>Game Options</h1>
+        <h1 class="label-text-color">Game Options</h1>
         <form method="POST" action="/save_options">
-            <label for="language">Language:</label>
+            <label class="label-text-color" for="language">Language:</label>
             <select name="language" id="language">
                 <option value="en">English</option>
                 <option value="de">Deutsch</option>
                 <!-- Add more language options if needed -->
             </select>
             
-            <label for="font-size">Font Size:</label>
+            <label class="label-text-color" for="font-size">Font Size:</label>
             <input type="number" name="font-size" id="font-size" min="10" max="24" value="16">
             
-            <label for="volume">Music Volume:</label>
+            <label class="label-text-color" for="volume">Music Volume:</label>
             <input type="range" name="volume" id="volume" min="0" max="100" value="50">
             
-            <label for="difficulty">Difficulty:</label>
+            <label class="label-text-color" for="difficulty">Difficulty:</label>
             <input type="radio" name="difficulty" value="easy" id="easy">
-            <label for="easy">Easy</label>
+            <label class="label-text-color" for="easy">Easy</label>
             <input type="radio" name="difficulty" value="medium" id="medium">
-            <label for="medium">Medium</label>
+            <label class="label-text-color" for="medium">Medium</label>
             <input type="radio" name="difficulty" value="hard" id="hard">
-            <label for="hard">Hard</label>
+            <label class="label-text-color" for="hard">Hard</label>
             
             <button type="submit">Speichern</button>
         </form>
