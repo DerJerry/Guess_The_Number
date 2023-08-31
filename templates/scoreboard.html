@@ -34,7 +34,35 @@
             {% endfor %}
         </table>
         <!-- Link zur Startseite -->
-        <a href="/"><button>Startseite</button></a>
+        <a href="/">Startseite</a>
     </div>
+
+    <script>
+        // Funktion zum Anwenden der Schriftgröße
+        function applyFontSize(size) {
+            document.body.style.fontSize = size + "px";
+            var fontButton = document.getElementById("font-button");
+            fontButton.style.fontSize = size * 0.8 + "px"; // Anpassung der Button-Größe
+        }
+
+        // Event Listener beim Laden der Seite
+        document.addEventListener("DOMContentLoaded", function () {
+            var savedFontSize = getCookie("font-size") || 16; // Standardwert: 16
+            applyFontSize(savedFontSize);
+        });
+
+        // Funktion zum Lesen von Cookie-Werten
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+    </script>
+
 </body>
 </html>

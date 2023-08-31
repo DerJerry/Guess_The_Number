@@ -3,7 +3,7 @@ import random
 import mysql.connector
 
 app = Flask(__name__)
-app.secret_key = "your_secret_key"  # Set your own secret key for session
+app.secret_key = "PushinP"
 
 # Verbindung zur MySQL-Datenbank herstellen
 db = mysql.connector.connect(

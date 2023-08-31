@@ -20,11 +20,10 @@
             <select name="language" id="language">
                 <option value="en">English</option>
                 <option value="de">Deutsch</option>
-                <!-- Add more language options if needed -->
             </select>
             
 
-            <!--- OPTION FIELDS-->
+            <!--- Optionfelder -->
         <div class="lang-space">
             <label class="label-text-color" for="font-size">Font Size:</label>
             <input type="number" name="font-size" id="font-size" min="10" max="24" value="16">
@@ -42,9 +41,9 @@
             <input type="radio" name="difficulty" value="hard" id="hard">
             <label class="label-text-color" for="hard">Hard</label>
         </div>  
-            <button type="submit">Speichern</button>
+            <button type="submit" id="font-button">Speichern</button>
         </form>
-        <a href="/"><button>Startseite</button></a>
+        <a href="/">Startseite</a>
     </div>
 
     <script>
@@ -58,49 +57,7 @@
             }
             document.cookie = name + "=" + (value || "") + expires + "; path=/";
         }
-    
-        // Event Listener für das Speichern der Optionen
-        document.addEventListener("DOMContentLoaded", function () {
-            var languageSelect = document.getElementById("language");
-            var fontSizeInput = document.getElementById("font-size");
-            var volumeInput = document.getElementById("volume");
-            var difficultyRadios = document.getElementsByName("difficulty");
-    
-            // Beim Laden der Seite: Cookie-Werte in den Formularelementen setzen
-            languageSelect.value = getCookie("language") || "en";
-            fontSizeInput.value = parseInt(getCookie("font-size")) || 16;  // Konvertieren Sie den Wert in eine Zahl
 
-            volumeInput.value = getCookie("volume") || "50";
-    
-            var selectedDifficulty = getCookie("difficulty");
-            for (var i = 0; i < difficultyRadios.length; i++) {
-                if (difficultyRadios[i].value === selectedDifficulty) {
-                    difficultyRadios[i].checked = true;
-                    break;
-                }
-
-            }
-    
-            // Bei Änderungen: Cookie-Werte aktualisieren
-            languageSelect.addEventListener("change", function () {
-                setCookie("language", languageSelect.value, 365);
-            });
-    
-            fontSizeInput.addEventListener("change", function () {
-                setCookie("font-size", fontSizeInput.value, 365);
-            });
-    
-            volumeInput.addEventListener("input", function () {
-                setCookie("volume", volumeInput.value, 365);
-            });
-    
-            for (var i = 0; i < difficultyRadios.length; i++) {
-                difficultyRadios[i].addEventListener("change", function () {
-                    setCookie("difficulty", this.value, 365);
-                });
-            }
-        });
-    
         // Funktion zum Lesen von Cookie-Werten
         function getCookie(name) {
             var nameEQ = name + "=";
@@ -112,7 +69,33 @@
             }
             return null;
         }
+
+        // Funktion zum Anwenden der Schriftgröße
+    function applyFontSize(size) {
+        document.body.style.fontSize = size + "px";
+        var fontButton = document.getElementById("font-button");
+        fontButton.style.fontSize = size * 0.8 + "px"; // Anpassung der Button-Größe
+        var fontInput = document.getElementById("font-input");
+        fontInput.style.fontSize = size * 0.8 + "px"; // Anpassung der Input-Größe
+    }
+
+        // Event Listener beim Laden der Seite
+        document.addEventListener("DOMContentLoaded", function () {
+            var fontSizeInput = document.getElementById("font-size");
+
+            // Beim Laden der Seite: Cookie-Werte in den Formularelementen setzen und Schriftgröße anwenden
+            var savedFontSize = getCookie("font-size") || 16; // Standardwert: 16
+            fontSizeInput.value = savedFontSize;
+            applyFontSize(savedFontSize);
+
+            // Event Listener für Schriftgröße
+            fontSizeInput.addEventListener("change", function () {
+                setCookie("font-size", fontSizeInput.value, 365);
+                applyFontSize(fontSizeInput.value);
+            });
+        });
     </script>
-    
+
+
 </body>
 </html>
