@@ -97,3 +97,16 @@ input[type="text"].dark-mode {
     font-family: 'Source Code Pro', monospace;
     color: black;
 }
+
+.lang-space {
+    margin-top: 25px;
+}
+
+.mus-space {
+    margin-top: 25px;
+}
+
+.diff-space {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
