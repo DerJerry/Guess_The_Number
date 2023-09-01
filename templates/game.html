@@ -28,7 +28,7 @@
                     <button type="submit" id="font-button">Raten</button>
                 </div>
             </form>
-            <a class="ratingButton" href="/"><button>Startseite</button></a>
+            <a href="/"><button id="start-button">Startseite</button></a>
         </div>
 
         <script>
@@ -39,6 +39,8 @@
                 fontButton.style.fontSize = size * 0.8 + "px"; // Anpassung der Button-Größe
                 var fontInput = document.getElementById("font-input");
                 fontInput.style.fontSize = size * 0.8 + "px"; // Anpassung der Input-Größe
+                var fontButton = document.getElementById("start-button");
+                fontButton.style.fontSize = size * 0.8 + "px"; // Anpassung der Startseite-Button-Größe
             }
     
             // Event Listener beim Laden der Seite

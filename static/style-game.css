@@ -53,3 +53,9 @@ button:hover {
     color: #1f1f1f
 
 }
+
+.label-text-color {
+    font-family: 'Black Ops One', cursive;
+    font-family: 'Source Code Pro', monospace;
+    color: black;
+}

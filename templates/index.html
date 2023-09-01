@@ -20,11 +20,13 @@
             <!-- Button, um das Spiel zu starten -->
             <button type="submit" id="font-button">Spiel Starten</button>
         </form>
+        
         <!-- Buttons, um das Scoreboard und die Optionen anzuzeigen -->
         <div>
-            <a href="{{ url_for('options') }}"><button>Optionen</button></a>
-            <a href="{{ url_for('scoreboard') }}"><button>Scoreboard</button></a>
+            <a href="{{ url_for('options') }}"><button id="option-button">Optionen</button></a>
+            <a href="{{ url_for('scoreboard') }}"><button id="scoreboard-button">Scoreboard</button></a>
         </div>
+    
     </div>
 
     
@@ -36,6 +38,10 @@
         fontButton.style.fontSize = size * 0.8 + "px"; // Anpassung der Button-Größe
         var fontInput = document.getElementById("font-input");
         fontInput.style.fontSize = size * 0.8 + "px"; // Anpassung der Input-Größe
+        var fontButton = document.getElementById("option-button");
+        fontButton.style.fontSize = size * 0.8 + "px"; // Anpassung der Option-Button-Größe
+        var fontButton = document.getElementById("scoreboard-button");
+        fontButton.style.fontSize = size * 0.8 + "px"; // Anpassung der Scoreboard-Button-Größe
     }
 
     // Event Listener beim Laden der Seite

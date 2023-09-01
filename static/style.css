@@ -10,6 +10,12 @@ body {
     background-color: #f0f0f0; /* Hintergrundfarbe für den Light Mode */
 }
 
+/* Dark Mode */
+body.dark-mode {
+    background-color: #1A1A1A; /* Hintergrundfarbe für den Dark Mode */
+    color: #ffffff;
+}
+
 .container {
     text-align: center;
     padding: 20px;
@@ -26,11 +32,7 @@ form {
     margin-bottom: 20px;
 }
 
-/* Dark Mode */
-body.dark-mode {
-    background-color: #1A1A1A; /* Hintergrundfarbe für den Dark Mode */
-    color: #ffffff;
-}
+
 
 .container.dark-mode {
     background-color: #444444; /* Hintergrundfarbe für den Dark Mode */
@@ -89,4 +91,10 @@ input[type="text"].dark-mode {
     font-family: 'Source Code Pro', monospace;
     color: #1f1f1f
 
+}
+
+.label-text-color {
+    font-family: 'Black Ops One', cursive;
+    font-family: 'Source Code Pro', monospace;
+    color: black;
 }

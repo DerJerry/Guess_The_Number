@@ -9,8 +9,36 @@ body {
     background-color: #f0f0f0; /* Hintergrundfarbe für den Light Mode */
 }
 
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #1A1A1A; /* Hintergrundfarbe für den Dark Mode */
+    color: #ffffff;
+}
+
+
+ /* Whitebox */
+ .container {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff; /* Hintergrundfarbe für den Light Mode */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
 /* Button-Stile */
 button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #CD950C; /* Standard Button-Farbe */
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button-Stile */
+#font-button {
     padding: 10px 20px;
     border: none;
     background-color: #CD950C; /* Standard Button-Farbe */
@@ -24,19 +52,21 @@ button:hover {
     background-color: #CD950C; /* Button-Farbe im Hover-Zustand */
 }
 
+
+/* Dark Mode für Buttons */
+button.dark-mode {
+    background-color: #1f1f1f; /* Button-Farbe im Dark Mode */
+}
+
+button.dark-mode:hover {
+    background-color: #333333; /* Button-Farbe im Dark Mode im Hover-Zustand */
+}
+
 .dark-mode {
     background-color: #1A1A1A; /* Hintergrundfarbe für den Dark Mode */
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
 }
 
- /* Whitebox */
- .container {
-    text-align: center;
-    padding: 20px;
-    background-color: #ffffff; /* Hintergrundfarbe für den Light Mode */
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
 
 .font-header {
     font-family: 'Black Ops One', cursive;
@@ -44,4 +74,11 @@ button:hover {
     color: #1f1f1f
 
 }
+
+.label-text-color {
+    font-family: 'Black Ops One', cursive;
+    font-family: 'Source Code Pro', monospace;
+    color: black;
+}
+
 
