@@ -8,7 +8,7 @@ class RandomNumberGameTest(unittest.TestCase):
 
     def test_index(self):
         response = self.app.get('/')
-        self.assertEqual(response.status_code,200)
+        self.assertEqual(response.status_code, 200)
 
     def test_game(self):
         with self.app as client:
@@ -24,7 +24,13 @@ class RandomNumberGameTest(unittest.TestCase):
 
     def test_scoreboard(self):
         response = self.app.get('/scoreboard')
-        self.assertEqual(response.status_code,200)
+        self.assertEqual(response.status_code, 200)
+
+
+    #! Nicht funktionierender Test
+    def test_GuessBtn(self):
+        response = self.app.post('/game', data={'guess': 50, 'target_number': 40, 'attempts': 1})
+        self.assertEqual(response.status_code, 200)
 
 if __name__ == '__main__':
     unittest.main()
