@@ -1,6 +1,20 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import random
 import mysql.connector
+import pygame
+
+# Initialisieren von pygame
+pygame.init()
+
+# Hintergrundmusik laden
+background_music = pygame.mixer.Sound('static/Hintergrundmusik.mp3')
+background_music.set_volume(0.3)
+
+
+# Hintergrundmusik abspielen (Endlosschleife)
+background_music.play(-1)
+
+
 
 app = Flask(__name__)
 app.secret_key = "PushinP"
@@ -80,21 +94,24 @@ def scoreboard():
 @app.route('/options')
 def options():
     return render_template('options.html')
+ 
+        
 
 # Route zum Speichern der Einstellungen in Cookies
 @app.route('/save_options', methods=['POST'])
 def save_options():
     language = request.form.get('language')
     font_size = request.form.get('font-size')
-    volume = request.form.get('volume')
-    difficulty = request.form.get('difficulty')
+    new_volume = float(request.form.get('volume'))
+    background_music.set_volume(new_volume)
+    
 
     # Speichern der Einstellungen in Cookies
     response = app.make_response(redirect(url_for('index')))
     response.set_cookie('language', str(language), max_age=365*24*60*60)
     response.set_cookie('font-size', str(font_size), max_age=365*24*60*60)
-    response.set_cookie('volume', str(volume), max_age=365*24*60*60)
-    response.set_cookie('difficulty', str(difficulty), max_age=365*24*60*60)
+    response = app.make_response(render_template('index.html', current_volume=new_volume))
+    response.set_cookie('volume', str(new_volume), max_age=365*24*60*60)
 
     
     return response

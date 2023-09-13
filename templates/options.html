@@ -16,11 +16,6 @@
     <div class="container">
         <h1 class="label-text-color">Game Options</h1>
         <form method="POST" action="/save_options">
-            <label class="label-text-color" for="language">Language:</label>
-            <select name="language" id="language">
-                <option value="en">English</option>
-                <option value="de">Deutsch</option>
-            </select>
             <!--- Optionfelder -->
         <div class="lang-space">
             <label class="label-text-color" for="font-size">Font Size:</label>
@@ -28,17 +23,10 @@
         </div>
         <div class="mus-space">  
             <label class="label-text-color" for="volume">Music Volume:</label>
-            <input type="range" name="volume" id="volume" min="0" max="100" value="50">
+            <input type="range" name="volume" id="volume" min="0" max="1" step="0.1" value="{{ current_volume }}">
+
         </div>
-        <div class="diff-space">
-            <label class="label-text-color" for="difficulty">Difficulty:</label>
-            <input type="radio" name="difficulty" value="easy" id="easy">
-            <label class="label-text-color" for="easy">Easy</label>
-            <input type="radio" name="difficulty" value="medium" id="medium">
-            <label class="label-text-color" for="medium">Medium</label>
-            <input type="radio" name="difficulty" value="hard" id="hard">
-            <label class="label-text-color" for="hard">Hard</label>
-        </div>  
+        
             <button type="submit" id="font-button">Speichern</button>
         </form>
         <button onclick="window.location.replace('/')" id="start-button">Startseite</button>
@@ -92,9 +80,13 @@
                 setCookie("font-size", fontSizeInput.value, 365);
                 applyFontSize(fontSizeInput.value);
             });
-        });
-    </script>
 
+        });
+        //Setzen der aktuellen Lautstärke
+        var volumeButton = document.getElementById("volume");
+        var volume = getCookie("volume");
+        volumeButton.setAttribute('value', volume);
+    </script>
 
 </body>
 </html>
