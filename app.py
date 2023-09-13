@@ -86,7 +86,6 @@ def scoreboard():
     scores = cursor.fetchall()
     return render_template('scoreboard.html', scores=scores)
 
-
 # Optionsseite
 @app.route('/options')
 def options():
@@ -100,7 +99,6 @@ def save_options():
     new_volume = float(request.form.get('volume'))
     background_music.set_volume(new_volume)
     
-
     # Speichern der Einstellungen in Cookies
     response = app.make_response(redirect(url_for('index')))
     response.set_cookie('language', str(language), max_age=365*24*60*60)
