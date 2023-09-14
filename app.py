@@ -16,6 +16,16 @@ background_music.play(-1)
 app = Flask(__name__)
 app.secret_key = "PushinP"
 
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  password=""
+)
+
+mycursor = mydb.cursor()
+
+mycursor.execute("CREATE DATABASE IF NOT EXISTS games")
+
 # Verbindung zur MySQL-Datenbank herstellen
 db = mysql.connector.connect(
     host="localhost",
