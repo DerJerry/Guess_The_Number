@@ -1,6 +1,6 @@
 # Guess_The_Number
 Zufallszahl Spiel 
 
-Bitte Requirements beachten!
+Bitte installGameRequirements.bat ausführen!
 
 
