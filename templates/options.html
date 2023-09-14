@@ -30,18 +30,24 @@
             <button type="submit" id="font-button">Speichern</button>
         </form>
         <button onclick="window.location.replace('/')" id="start-button">Startseite</button>
+
+        <!-- Schalter für Farbschema der Buttons -->
+        <label for="button-color-scheme-switch">Schwarz/Weiß Button:</label>
+        <input type="checkbox" id="button-color-scheme-switch">
     </div>
 
     <script>
 
         // Funktion zum Anwenden der Schriftgröße
         function applyFontSize(size) {
-        document.body.style.fontSize = size + "px";
-        var fontButton = document.getElementById("font-button");
-        fontButton.style.fontSize = size * 0.8 + "px"; // Anpassung der Button-Größe
-        var fontButton = document.getElementById("start-button");
-        fontButton.style.fontSize = size * 0.8 + "px"; // Anpassung der Startseite-Button-Größe
-    }
+            document.body.style.fontSize = size + "px";
+            var fontButton = document.getElementById("font-button");
+            fontButton.style.fontSize = size * 0.8 + "px"; // Anpassung der Button-Größe
+            var fontInput = document.getElementById("font-size");
+            fontInput.style.fontSize = size * 0.8 + "px"; // Anpassung der Input-Größe
+            var startButton = document.getElementById("start-button");
+            startButton.style.fontSize = size * 0.8 + "px"; // Anpassung der Startseite-Button-Größe
+        }
 
         // Funktion zum Speichern von Cookie-Werten
         function setCookie(name, value, days) {
@@ -66,6 +72,22 @@
             return null;
         }
 
+         // Funktion zum Anwenden des Button-Farbschemas
+         function applyButtonColorScheme(isBlackAndWhite) {
+            var buttons = document.querySelectorAll("button");
+            buttons.forEach(function (button) {
+                if (isBlackAndWhite) {
+                    // Schwarz/Weiß Farbschema für Buttons
+                    button.style.backgroundColor = "black";
+                    button.style.color = "white";
+                } else {
+                    // Standard Farbschema für Buttons
+                    button.style.backgroundColor = ""; // Zurücksetzen auf Standardfarbe
+                    button.style.color = ""; // Zurücksetzen auf Standardfarbe
+                }
+            });
+        }
+
         // Event Listener beim Laden der Seite
         document.addEventListener("DOMContentLoaded", function () {
             var fontSizeInput = document.getElementById("font-size");
@@ -79,6 +101,13 @@
             fontSizeInput.addEventListener("change", function () {
                 setCookie("font-size", fontSizeInput.value, 365);
                 applyFontSize(fontSizeInput.value);
+            });
+
+                // Event Listener für Button-Farbschema
+                buttonColorSchemeSwitch.addEventListener("change", function () {
+                var isBlackAndWhiteButtons = buttonColorSchemeSwitch.checked;
+                setCookie("button-color-scheme", isBlackAndWhiteButtons ? "blackAndWhite" : "colorful", 365);
+                applyButtonColorScheme(isBlackAndWhiteButtons);
             });
 
         });
