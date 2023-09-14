@@ -1,0 +1,7 @@
+CREATE DATABASE games;
+
+CREATE TABLE IF NOT EXISTS scores (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        attempts INT NOT NULL
+    )
