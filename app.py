@@ -24,6 +24,7 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
+# Datenbank erstellen
 mycursor.execute("CREATE DATABASE IF NOT EXISTS games")
 
 # Verbindung zur MySQL-Datenbank herstellen
