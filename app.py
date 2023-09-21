@@ -4,9 +4,13 @@ import mysql.connector
 import pygame
 
 
+# Initialisieren von pygame
+pygame.init()
+
+background_music = None
+
 app = Flask(__name__)
 app.secret_key = "PushinP"
-background_music = ""
 # Verbindung zur MySQL-Datenbank herstellen
 db = mysql.connector.connect(
     host="localhost",
@@ -18,9 +22,7 @@ cursor = db.cursor()
 
 # Funktion zur Initialisierung der Einstellungen
 def load_settings():
-    global db 
-    # Initialisieren von pygame
-    pygame.init()
+    global background_music,db
 
     # Hintergrundmusik laden und einstellen
     background_music = pygame.mixer.Sound('static/Hintergrundmusik.mp3')
